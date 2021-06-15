@@ -1,2 +1,2 @@
-#!/obin/bash
+#!/bin/bash
 cut -b 1 poem | fmt | tr -d " "
