@@ -1,8 +1,6 @@
 # Install a package with a puppet manifest
 package {
   'puppet-lint':
-  ensure  => installed,
-  version => '2.5.0',
-  hold    => true,
-  source  => 'https://rubygems.org/'
+  ensure => '2.5.0',
+  source => 'https://rubygems.org/'
 }
