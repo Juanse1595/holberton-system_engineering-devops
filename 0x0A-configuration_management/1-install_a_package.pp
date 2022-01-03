@@ -4,4 +4,5 @@ package {
   ensure  => installed,
   version => '2.5.0',
   hold    => true,
+  source  => 'https://rubygems.org/'
 }
