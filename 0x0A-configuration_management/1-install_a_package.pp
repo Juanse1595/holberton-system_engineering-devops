@@ -1,5 +1,7 @@
 # Install a package with a puppet manifest
 package {
   'puppet-lint':
-  ensure  => '2.5.0',
+  ensure  => installed,
+  version => '2.5.0',
+  hold    => true,
 }
