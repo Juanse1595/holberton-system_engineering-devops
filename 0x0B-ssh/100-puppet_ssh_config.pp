@@ -2,13 +2,13 @@
 file_line {
     'Private key':
     ensure => present,
-    path   => '~/.ssh/config',
+    path   => '/etc/ssh/ssh_config',
     line   => '    IdentityFile ~/.ssh/school'
 }
 
 file_line {
     'No password':
     ensure => present,
-    path   => '~/.ssh/config',
+    path   => '/etc/ssh/ssh_config',
     line   => '    BatchMode yes'
 }
