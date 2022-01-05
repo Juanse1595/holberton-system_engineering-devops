@@ -10,5 +10,5 @@ file_line {
     'No password':
     ensure => present,
     path   => '/etc/ssh/ssh_config',
-    line   => '    BatchMode yes'
+    line   => '    PasswordAuthentication no'
 }
