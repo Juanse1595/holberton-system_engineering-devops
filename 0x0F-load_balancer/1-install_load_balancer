@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Bash script to install and configure HAProxy
-sudo apt-get install -y --no-install-recommends software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.5 -y
-sudo apt-get install -y haproxy=2.5.\*
+sudo apt-get -y update
+sudo apt-get -y install haproxy
 path="/etc/haproxy/haproxy.cfg"
 text="frontend myfrontend
         bind :80
