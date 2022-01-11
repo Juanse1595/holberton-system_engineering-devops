@@ -13,3 +13,5 @@ backend myservers
         server 3309-web-01 34.138.152.200:80
         server 3309-web-02 3.85.201.247:80"
 echo "$text" | sudo tee -a $path >/dev/null
+echo "ENABLED=1" | sudo tee -a /etc/default/haproxy >/dev/null
+sudo systemctl restart haproxy
