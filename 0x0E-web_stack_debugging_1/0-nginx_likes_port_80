@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 # Configure an nginx server to listen to port 80
-#!/usr/bin/env bash
-# Configure an nginx server to listen to port 80
 echo "
 ##
 # You should look at the following URL's in order to grasp a solid understanding
