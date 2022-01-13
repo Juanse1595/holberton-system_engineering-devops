@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Configure an nginx server to listen to port 80
-ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+ln -fs /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 service nginx start
 rm /run/nginx.pid
