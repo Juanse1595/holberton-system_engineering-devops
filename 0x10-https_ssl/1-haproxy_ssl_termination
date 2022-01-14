@@ -35,6 +35,7 @@ defaults
 
 frontend myfrontend
         bind :80
+        bind *:443 ssl crt /etc/letsencrypt/live/www.rentplace.tech/fullchain.pem
         default_backend myservers
         mode http
 
