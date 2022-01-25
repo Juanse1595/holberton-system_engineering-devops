@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Fix this container so that Nginx is running as the nginx user.
-sudo su
 echo "user nginx;" >> /etc/nginx/nginx.conf
 chown nginx: /var/www
 chown nginx: /etc/nginx/
