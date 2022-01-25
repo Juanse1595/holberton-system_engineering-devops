@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fix this container so that Nginx is running as the nginx user.
+sudo su
+echo "user nginx;" >> /etc/nginx/nginx.conf
+chown nginx: /var/www
+chown nginx: /etc/nginx/
+chmod -R 777 /etc/nginx/
+sed -i 's/80/8080/' /etc/nginx/sites-available/default
+sudo -u nginx service nginx start
