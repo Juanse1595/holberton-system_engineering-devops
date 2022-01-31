@@ -19,7 +19,8 @@ if __name__ == '__main__':
         if empl['id'] == given_id:
             employee_username = empl['username']
     with open('{}.csv'.format(given_id), 'w', encoding='UTF8') as f:
-        writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+        writer = csv.writer(f, delimiter=',', quotechar='"',
+                            quoting=csv.QUOTE_ALL)
         for todo in todos:
             if todo['userId'] == given_id:
                 row.append(given_id)
