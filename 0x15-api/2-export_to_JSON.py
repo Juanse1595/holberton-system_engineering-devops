@@ -28,5 +28,5 @@ if __name__ == '__main__':
                 subdict['completed'] = todo['completed']
                 subdict['username'] = employee_username
                 dict_list.append(subdict)
-        dict_export['{}'.format(given_id)] = dict_list
+        dict_export[given_id] = dict_list
         json.dump(dict_export, f)
