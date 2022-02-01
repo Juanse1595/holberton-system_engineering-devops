@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-'''0-gather_data_from_an_API module'''
+'''2-export_to_JSON module'''
 import json
-from re import sub
 import requests
 import sys
 
