@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 '''0-gather_data_from_an_API module'''
-import csv
 import json
+from re import sub
 import requests
 import sys
 
@@ -12,21 +12,21 @@ if __name__ == '__main__':
     todos = json.loads(todos_data.text)
     employee_data = requests.get('https://jsonplaceholder.typicode.com/users')
     employees = json.loads(employee_data.text)
-    '''Creating row'''
-    row = []
+    '''Creating the subdictionaries, list and dictionary to export'''
+    subdict = {}
+    dict_list = []
+    dict_export = {}
     '''Getting employee username'''
     for empl in employees:
         if empl['id'] == given_id:
             employee_username = empl['username']
-    '''Write to csv file'''
-    with open('{}.csv'.format(given_id), 'w', encoding='UTF8') as f:
-        writer = csv.writer(f, delimiter=',', quotechar='"',
-                            quoting=csv.QUOTE_ALL)
+    '''Write to json file'''
+    with open("{}.json".format(given_id), "w") as f:
         for todo in todos:
             if todo['userId'] == given_id:
-                row.append(given_id)
-                row.append(employee_username)
-                row.append(todo['completed'])
-                row.append(todo['title'])
-                writer.writerow(row)
-                row = []
+                subdict['task'] = todo['title']
+                subdict['completed'] = todo['completed']
+                subdict['username'] = employee_username
+                dict_list.append(subdict)
+        dict_export['{}'.format(given_id)] = dict_list
+        json.dump(dict_export, f)
