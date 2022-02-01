@@ -11,7 +11,7 @@ if __name__ == '__main__':
     todos = requests.get('https://jsonplaceholder.typicode.com/\
 todos?userId={}'.format(given_id)).json()
     employees = requests.get('https://jsonplaceholder.typicode.com/users/{}'
-                                 .format(given_id)).json()
+                             .format(given_id)).json()
     '''Creating the subdictionaries, list and dictionary to export'''
     subdict = {}
     dict_list = []
