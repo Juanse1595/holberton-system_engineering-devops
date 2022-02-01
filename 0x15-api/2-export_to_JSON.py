@@ -8,6 +8,7 @@ import sys
 
 if __name__ == '__main__':
     given_id = int(sys.argv[1])
+    '''List of tasks done by userId user'''
     todos = requests.get('https://jsonplaceholder.typicode.com/\
 todos?userId={}'.format(given_id)).json()
     employees = requests.get('https://jsonplaceholder.typicode.com/users/{}'
@@ -24,6 +25,7 @@ todos?userId={}'.format(given_id)).json()
         subdict['completed'] = todo.get('completed')
         subdict['username'] = employee_username
         dict_list.append(subdict)
+        subdict = {}
     dict_export[given_id] = dict_list
     '''Write to json file'''
     with open("{}.json".format(given_id), "w") as f:
