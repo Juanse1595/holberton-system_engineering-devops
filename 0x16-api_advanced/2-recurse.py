@@ -3,7 +3,7 @@
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], idx=0):
     headers = {
         'User-Agent': 'Example script to retrieve info'
     }
@@ -12,6 +12,7 @@ def recurse(subreddit, hot_list=[]):
     if response.reason != 'OK':
         return None
     else:
-        for item in response.json()['data']['children']:
-            hot_list.append(item['data']['title'])
-        return hot_list
+        if idx == len(response.json()['data']['children']):
+            return hot_list
+        hot_list.append(response.json()['data']['children'][idx]['data']['title'])
+        return recurse(subreddit, hot_list, idx + 1)
