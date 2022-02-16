@@ -14,5 +14,6 @@ def recurse(subreddit, hot_list=[], idx=0):
     else:
         if idx == len(response.json()['data']['children']):
             return hot_list
-        hot_list.append(response.json()['data']['children'][idx]['data']['title'])
+        hot_list.append(response.json()['data']['children']
+                        [idx]['data']['title'])
         return recurse(subreddit, hot_list, idx + 1)
