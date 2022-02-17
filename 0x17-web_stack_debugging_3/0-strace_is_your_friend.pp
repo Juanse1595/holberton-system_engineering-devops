@@ -1,10 +1,9 @@
 # This script fixes the web server changing a line in a config file
 
 include stdlib
-file_line {
+exec {
     'fix line on wp-settings.php':
-    ensure => present,
-    path   => '/var/www/html/wp-settings.php',
-    line   => "require_once( ABSPATH . WPINC . '/class-wp-locale.php' );",
-    match  => "require_once( ABSPATH . WPINC . '/class-wp-locale.phpp' );",
+    onlyif    => 'test -e /var/www/html/wp-settings.php'
+    command   => "sed -i 's/phpp/php' /var/www/html/wp-settings.php",
+    path   => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
