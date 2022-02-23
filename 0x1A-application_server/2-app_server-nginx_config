@@ -1,0 +1,20 @@
+# This is the config file of the nginx server web 01
+server {
+        listen 80;
+        server_name rentplace.tech www.rentplace.tech;
+
+        error_page 404 /404.html;
+        location = /404.html {
+                root /usr/share/nginx/html;
+                internal;
+        }
+
+        add_header X-Served-By $hostname;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        location /airbnb-onepage/ {
+                include proxy_params;
+                proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
+        }
+}
